@@ -27,7 +27,31 @@ msgid "TrueCrypt container to mount"
 msgstr ""
 
 msgctxt "#30003"
+msgid "Keyfile (optional)"
+msgstr "Keyfiles is a file whose content is combined with a password."
+
+msgctxt "#30004"
 msgid "Container mounting location"
+msgstr ""
+
+msgctxt "#30005"
+msgid "Save password to decrypt container?"
+msgstr ""
+
+msgctxt "#30006"
+msgid "Saved password:"
+msgstr ""
+
+msgctxt "#30007"
+msgid "Run after successful mount:"
+msgstr ""
+
+msgctxt "#30008"
+msgid "Run before unmount:"
+msgstr ""
+
+msgctxt "#30009"
+msgid "Run after successful unmount:"
 msgstr ""
 
 msgctxt "#31000"

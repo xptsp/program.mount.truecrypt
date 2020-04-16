@@ -4,6 +4,14 @@
 		<setting label="30001" type="file" id="executable" default="/usr/bin/truecrypt" />
         <setting type="sep" />
     	<setting label="30002" type="file" id="container" default="/dev/disk/by-partuuid/bbf95955-23b5-48e8-82d0-4962ad1e9564" />
-	    <setting label="30003" type="folder" id="mountdir" default="/mnt/hdd" />
+	    <setting label="30003" type="text" id="keyfile" default="" />
+	    <setting label="30004" type="folder" id="mountdir" default="/mnt/hdd" />
+        <setting type="sep" />
+	    <setting label="30005" type="bool" id="use_saved_pwd" default="false" />
+	    <setting label="30006" type="text" id="saved_pwd" default="" enable="eq(-1,true)" option="hidden" />
+        <setting type="sep" />
+	    <setting label="30007" type="text" id="mount_after" default="" />
+	    <setting label="30008" type="text" id="unmount_before" default="" />
+	    <setting label="30009" type="text" id="unmount_after" default="" />
 	</category>
 </settings>

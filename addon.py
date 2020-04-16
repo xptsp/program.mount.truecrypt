@@ -11,7 +11,7 @@ addon = xbmcaddon.Addon(id='script.mount.truecrypt')
 txt = addon.getLocalizedString
 
 ############################################################################
-def mount_container(tc, dir="", pwd="", key="", hidden=False):
+def mount_container(tc, dir="", key="", pwd="", hidden=False):
 	# Figure out what the parameters should be:
 	if key == "":
 		key = '""'
@@ -26,9 +26,13 @@ def mount_container(tc, dir="", pwd="", key="", hidden=False):
 	if pwd == "":
 		xbmcgui.Dialog().ok(txt(32003), txt(32009))
 		return
+	if use_saved_pwd and saved_pwd == "":
+		addon.setSetting('saved_pwd', pwd)
 
 	# Attempt to mount the container:
 	if os.system(executable + ' --text --non-interactive --mount -p ' + pwd + ' -k ' + key + ' --protect-hidden=' + hidden + ' ' + tc + ' ' + dir) == 0:
+		if mount_after != "":
+			os.system(mount_after)
 		xbmcgui.Dialog().ok(txt(32001), txt(32002))
 	else:
 		xbmcgui.Dialog().ok(txt(32003), txt(32004))
@@ -38,7 +42,11 @@ def unmount_container(tc, unmount=False):
 	if not unmount:
 		unmount = is_mounted(tc) and xbmcgui.Dialog().yesno(txt(32010), txt(32011), nolabel=txt(32012))
 	if unmount:
-		if os.system(executable + ' --text --non-interactive -d -f ' + tc) == 0:
+		if unmount_before != "":
+			os.system(unmount_before)
+		if os.system(executable + ' --text --non-interactive -d -f ' + tc):
+			if unmount_after != "":
+				os.system(unmount_after)
 			xbmcgui.Dialog().ok(txt(32005), txt(32006))
 		else:
 			xbmcgui.Dialog().ok(txt(32007), txt(32008))
@@ -70,9 +78,19 @@ def get_params():
 
 ############################################################################
 # Get the addon settings:
-executable   = addon.getSetting("executable").decode('utf-8')
-container    = addon.getSetting("container").decode('utf-8')
-mountdir     = addon.getSetting("mountdir").decode('utf-8')
+executable     = addon.getSetting("executable").decode('utf-8')
+container      = addon.getSetting("container").decode('utf-8')
+mountdir       = addon.getSetting("mountdir").decode('utf-8')
+keyfile        = addon.getSetting("keyfile").decode('utf-8')
+use_saved_pwd  = addon.getSetting("use_saved_pwd") == "true"
+if use_saved_pwd:
+	saved_pwd  = addon.getSetting("saved_pwd").decode('utf-8')
+else:
+	saved_pwd  = ""
+	addon.setSetting("saved_pwd", "")
+mount_after    = addon.getSetting("mount_after").decode('utf-8')
+unmount_before = addon.getSetting("unmount_before").decode('utf-8')
+unmount_after  = addon.getSetting("unmount_after").decode('utf-8')
 
 # Error out if this addon is being run on Windows:
 if platform.system() == "Windows":
@@ -106,4 +124,4 @@ else:
 		unmount_container(tc=container, unmount=forced)
 	# Otherwise, try and mount the container!
 	else:
-		mount_container(tc=container, dir=mountdir)
+		mount_container(tc=container, dir=mountdir, key=keyfile, pwd=saved_pwd)
