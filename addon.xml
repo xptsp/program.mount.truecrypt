@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.mount.truecrypt" name="Mount TrueCrypt Container" version="2.0" provider-name="xptsp">
+<addon id="script.mount.truecrypt" name="Mount TrueCrypt Container" version="2.1" provider-name="xptsp">
 	<requires>
 		<import addon="xbmc.python" version="2.25.0"/>
 	</requires>

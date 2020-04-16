@@ -14,15 +14,7 @@ msgstr ""
 
 #Plugin settings strings
 
-msgctxt "#30051"
-msgid "OK"
-msgstr ""
-
-msgctxt "#30052"
-msgid "Cancel"
-msgstr ""
-
-msgctxt "#31000"
+msgctxt "#30000"
 msgid "Settings"
 msgstr ""
 
@@ -78,6 +70,10 @@ msgctxt "#31009"
 msgid "The mounting location to mount the container does not exist!"
 msgstr ""
 
+msgctxt "#31010"
+msgid "Fix this issue now?"
+msgstr ""
+
 msgctxt "#32000"
 msgid "Please enter the TrueCrypt container's password:"
 msgstr ""
@@ -115,4 +111,16 @@ msgstr ""
 
 msgctxt "#32009"
 msgid "Unable to mount TrueCrypt container without a password!"
+msgstr ""
+
+msgctxt "#32010"
+msgid "TrueCrypt Container already mounted!"
+msgstr ""
+
+msgctxt "#32011"
+msgid "Are you sure you want to unmount the container at this time?"
+msgstr ""
+
+msgctxt "#32012"
+msgid "Abort"
 msgstr ""
