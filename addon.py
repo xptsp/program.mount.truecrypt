@@ -26,7 +26,7 @@ def mount_container(tc, dir="", key="", pwd="", hidden=False):
 	if pwd == "":
 		xbmcgui.Dialog().ok(txt(32003), txt(32009))
 		return
-	if use_saved_pwd and saved_pwd == "":
+	if use_saved_pwd and saved_pwd != "":
 		addon.setSetting('saved_pwd', pwd)
 
 	# Attempt to mount the container:
