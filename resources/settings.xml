@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+	<category label="30000">
+		<setting label="30001" type="file" id="executable" default="/usr/bin/truecrypt" />
+        <setting type="sep" />
+    	<setting label="30002" type="file" id="container" default="/dev/disk/by-partuuid/bbf95955-23b5-48e8-82d0-4962ad1e9564" />
+	    <setting label="30003" type="folder" id="mountdir" default="/mnt/hdd" />
+	</category>
+</settings>
