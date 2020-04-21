@@ -7,7 +7,7 @@
 		<provides>executable</provides>
 	</extension> 
 	<extension point="xbmc.addon.metadata">
-		<platform>all</platform>
+		<platform>linux</platform>
 		<summary>Mount TrueCrypt Files</summary>
 		<description>Mount and Unmount TrueCrypt and/or VeraCrypt Containers within Kodi on Linux-based OSes.  Windows-based TrueCrypt is not supported by this addon!</description>
 		<assets>
